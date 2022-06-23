@@ -68,6 +68,7 @@ const guessTrue = function () {
     generateExpression();
   } else {
     points.value--;
+    points.value--;
     generateExpression();
   }
 }
@@ -77,6 +78,7 @@ const guessFalse = function () {
     points.value++;
     generateExpression();
   } else {
+    points.value--;
     points.value--;
     generateExpression();
   }
@@ -124,18 +126,19 @@ const guessFalse = function () {
   </div>
   <div class="flex justify-center mt-8">
     <button
-      class="bg-indigo-300 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded h-[50px] w-[200px] text-2xl mr-12"
-      @click="startGame">
+      class="bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-2 px-4 rounded h-[50px] w-[200px] text-2xl mr-12"
+      @click="startGame"
+      :disabled="playing">
       &#9654; Play
     </button>
     <button
-      class="bg-rose-300 hover:bg-rose-500 text-white font-bold py-2 px-4 rounded h-[50px] w-[200px] text-2xl ml-12"
+      class="bg-rose-500 hover:bg-rose-400 text-white font-bold py-2 px-4 rounded h-[50px] w-[200px] text-2xl ml-12"
       @click="stopTimer"
       v-if="!gameOver">
       &#x2715; Stop
     </button>
     <button
-      class="bg-rose-300 hover:bg-rose-500 text-white font-bold py-2 px-4 rounded h-[50px] w-[200px] text-2xl ml-12"
+      class="bg-rose-500 hover:bg-rose-400 text-white font-bold py-2 px-4 rounded h-[50px] w-[200px] text-2xl ml-12"
       @click="stopTimer"
       v-else>
       &#x27F3; Restart
